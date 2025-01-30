@@ -1,0 +1,13 @@
+The solution is to either move the `@apply` directives into your main CSS file or adjust your build process so Tailwind handles the import before processing. The best approach involves moving the code into your main css file. Example of corrected usage:
+
+```css
+/* main.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-utility {
+  @apply bg-blue-500 px-4 py-2 rounded;
+}
+```
+This ensures that Tailwind processes the `@apply` directive during its build step, correctly applying the specified utility classes.
