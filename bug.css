@@ -1,0 +1,15 @@
+This error typically occurs when using Tailwind's `@apply` directive within a CSS file that is then imported into your main CSS file. The `@apply` directive is processed during the build step, not at runtime, so it won't work when it is placed in an imported file.  The error message may not explicitly state this, making it difficult to diagnose. Example of incorrect usage:
+
+```css
+/* _utilities.css */
+.my-utility {
+  @apply bg-blue-500 px-4 py-2 rounded;
+}
+```
+```css
+/* main.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "_utilities.css";
+```
